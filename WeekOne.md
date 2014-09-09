@@ -1,5 +1,6 @@
 ###R has ﬁve basic or “atomic” classes of objects:
-  ###The most basic object is a vector
+
+###The most basic object is a vector
 
 * character
 * numeric (real numbers)
