@@ -107,13 +107,13 @@ function (X, INDEX, FUN = NULL, ..., simplify = TRUE)
 Take group means without simplification.
 > tapply(x, f, mean, simplify = FALSE)
 
-> $¡®1¡®
+> $‘1’
 > [1] 0.1144464
 
-> $¡®2¡®
+> $‘2’
 > [1] 0.5163468
 
-> $¡®3¡®
+> $‘3’
 > [1] 1.246368
 
 ###split
