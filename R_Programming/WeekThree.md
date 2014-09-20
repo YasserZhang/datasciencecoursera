@@ -64,7 +64,7 @@ For sums and means of matrix dimensions, we have some shortcuts.
 * colSums = apply(x, 2, sum)
 * colMeans = apply(x, 2, mean)
 
-The shortcut functions are _much_ faster, but you won¡¯t notice unless you¡¯re using a large matrix.
+The shortcut functions are _much_ faster, but you wonÂ¡Â¯t notice unless youÂ¡Â¯re using a large matrix.
 
 ###Other Ways to Apply Other Ways to Apply
 Quantiles of the rows of a matrix.
@@ -107,13 +107,13 @@ function (X, INDEX, FUN = NULL, ..., simplify = TRUE)
 Take group means without simplification.
 > tapply(x, f, mean, simplify = FALSE)
 
-> $¡®1¡®
+> $Â¡Â®1Â¡Â®
 > [1] 0.1144464
 
-> $¡®2¡®
+> $Â¡Â®2Â¡Â®
 > [1] 0.5163468
 
-> $¡®3¡®
+> $Â¡Â®3Â¡Â®
 > [1] 1.246368
 
 ###split
@@ -129,27 +129,30 @@ function (x, f, drop = FALSE, ...)
 > x <- c(rnorm(10), runif(10), rnorm(10, 1))
 > f <- gl(3, 10)
 > split(x, f)
-$¡®1¡®
+
+$â€˜1â€™
  [1] -0.8493038 -0.5699717 -0.8385255 -0.8842019
  [5] 0.2849881 0.9383361 -1.0973089 2.6949703
  [9] 1.5976789 -0.1321970
-$¡®2¡®
+ 
+$â€˜2â€™
  [1] 0.09479023 0.79107293 0.45857419 0.74849293
  [5] 0.34936491 0.35842084 0.78541705 0.57732081
  [9] 0.46817559 0.53183823
-$¡®3¡®
+ 
+$â€˜3â€™
  [1] 0.6795651 0.9293171 1.0318103 0.4717443
  [5] 2.5887025 1.5975774 1.3246333 1.4372701
 
 > lapply(split(x, f), mean)
 
-$¡®1¡®
+$â€˜1â€™
 [1] 0.1144464
 
-$¡®2¡®
+$â€˜2â€™
 [1] 0.5163468
 
-$¡®3¡®
+$â€˜3â€™
 [1] 1.246368
 
 > library(datasets)
