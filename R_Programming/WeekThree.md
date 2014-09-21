@@ -20,7 +20,6 @@ Writing for, while loops is useful when programming but not particularly easy wh
 > x <- 1:4
 > lapply(x, runif)
 
-
 > x <- 1:4
 > lapply(x, runif, min = 0, max = 10) you can add more arguments munipulating the function.
 
@@ -52,13 +51,17 @@ function (X, MARGIN, FUN, ...)
 * x is an array
 * MARGIN is an integer vector indicating which margins should be "retained".
 * ... is for other arguments to be passed to FUN
+
 > x <- matrix(rnorm(200), 20, 10)
+
 > apply(x, 2, mean) # 2 stands for column
+
 > apply(x, 1, sum) # 1 stands for row
 
 ##col/row sums and means col/row sums and means
 
 For sums and means of matrix dimensions, we have some shortcuts.
+
 * rowSums = apply(x, 1, sum)
 * rowMeans = apply(x, 1, mean)
 * colSums = apply(x, 2, sum)
@@ -75,6 +78,7 @@ Quantiles of the rows of a matrix.
 
 ##Average matrix in an array
 > a <- array(rnorm(2 * 2 * 10), c(2, 2, 10)) # build a list of 10 2x2 matrices
+
 > apply(a, c(1, 2), mean) # mean of [1,1], [1,2],[2,1] and [2,2] of all matrices.
 
 > rowMeans(a, dims = 2) # the same thing done with rowMeans
@@ -156,11 +160,17 @@ $‘3’
 [1] 1.246368
 
 > library(datasets)
+
 > head(airquality)
+
 > s <- split(airquality, airquality$Month)
+
 > lapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")]))
-# apply a function to columns in a neater way
+
+#### apply a function to columns in a neater way
+
 > sapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")])) 
+
 > sapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")], na.rm = TRUE))
 
 ###Splitting on More than One Level Splitting on More than One Level
@@ -172,8 +182,9 @@ $‘3’
 > interaction(f1, f2)
 
 #split x by the join factor levels of f1 and f2
-split(x, list(f1, f2))
-str(split(x, list(f1, f2)))
+
+> split(x, list(f1, f2))
+> str(split(x, list(f1, f2)))
 # dropping empty factor levels
 > str(split(x, list(f1, f2), drop = TRUE))
 
@@ -203,4 +214,4 @@ list(rep(1, 4), rep(2, 3), rep(3, 2), rep(4, 1))
 > mapply(noise, 1:5, 1:5, 2)
 
 #Which is the same as 
-list(noise(1, 1, 2), noise(2, 2, 2), noise(3, 3, 2), noise(4, 4, 2), noise(5, 5, 2))
+> list(noise(1, 1, 2), noise(2, 2, 2), noise(3, 3, 2), noise(4, 4, 2), noise(5, 5, 2))
