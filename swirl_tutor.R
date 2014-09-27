@@ -39,7 +39,7 @@
 
 | A shorthand way of specifying multiple negative numbers is to put the negative sign out in front of the vector of positive numbers. Type x[-c(2, 10)] to
 | get the exact same result.
-
+-------------------------------------------------------------------
 6: Matrices and Data Frames
 
 let's check that vect and vect2 are the same by passing them as arguments to the identical() function
@@ -48,7 +48,7 @@ when we tried to combine a character vector with a numeric matrix, R was forced 
 | characters, hence the double quotes.
 
 | This is called 'implicit coercion', because we didn't ask for it. It just happened.
-
+-------------------------------------------------------------------
 7: lapply and sapply
 
 | These powerful functions, along with their close relatives (vapply() and tapply(), among others) offer a concise and
