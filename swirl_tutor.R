@@ -53,4 +53,15 @@ when we tried to combine a character vector with a numeric matrix, R was forced 
 
 | These powerful functions, along with their close relatives (vapply() and tapply(), among others) offer a concise and
 | convenient means of implementing the Split-Apply-Combine strategy for data analysis.
+-------------------------------------------------------------------
+9: looking at data
 
+| If you are curious as to how much space the dataset is occupying in memory, you can use object.size(plants).
+
+-------------------------------------------------------------------
+11: Dates and Times
+
+all POSIXlt objects, is just a list of values that make up the date and time.
+
+If you want more control over the units
+| when finding the above difference in times, you can use difftime(), which allows you to specify a 'units' parameter.
