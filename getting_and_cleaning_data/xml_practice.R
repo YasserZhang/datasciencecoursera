@@ -72,3 +72,34 @@ head(Madhu2012,1)
 names(Madhu2012)
 summary(Madhu2012)
 Madhu2012.Clean = Madhu2012[Madhu2012[25]=='Y',]
+
+
+
+
+
+------------------------------------
+  """
+How many characters are in the 10th, 20th, 30th and 100th lines of HTML from this page: 
+
+http://biostat.jhsph.edu/~jleek/contact.html 
+
+(Hint: the nchar() function in R may be helpful)
+"""
+url  <-  "http://biostat.jhsph.edu/~jleek/contact.html"
+html <- htmlTreeParse(url,useInternalNodes=T)
+download.file(url,destfile = "contact.txt",method = "curl")
+htmlfile=readLines("contact.txt")
+length(htmlfile)
+nchar(htmlfile[10])
+nchar(htmlfile[20])
+nchar(htmlfile[30])
+nchar(htmlfile[100])
+
+url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fwksst8110.for"
+download.file(url,destfile= "get")
+fil = read.fwf("getdata-wksst8110.for", skip =4, widths=c(12, 7,4, 9,4, 9,4, 9,4))
+dim(fil)
+sum(fil[,4])
+=======
+  
+  
