@@ -1,0 +1,1194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1265.21">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 18.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Calibri; min-height: 15.0px}
+    p.p3 {margin: 0.0px 0.0px 16.0px 0.0px; font: 13.0px Calibri; color: #323333}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Calibri; color: #323333}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Calibri; color: #4183c4; min-height: 15.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #323333; min-height: 15.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Calibri}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 12.0px Calibri; min-height: 14.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 12.0px Calibri}
+    table.t1 {border-collapse: collapse}
+    td.td1 {width: 45.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #cbcbcb #cbcbcb #cbcbcb #cbcbcb; padding: 0.0px 5.0px 0.0px 5.0px}
+    td.td2 {width: 216.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #cbcbcb #cbcbcb #cbcbcb #cbcbcb; padding: 0.0px 5.0px 0.0px 5.0px}
+    td.td3 {width: 124.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #cbcbcb #cbcbcb #cbcbcb #cbcbcb; padding: 0.0px 5.0px 0.0px 5.0px}
+    td.td4 {width: 109.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #cbcbcb #cbcbcb #cbcbcb #cbcbcb; padding: 0.0px 5.0px 0.0px 5.0px}
+    td.td5 {width: 244.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #cbcbcb #cbcbcb #cbcbcb #cbcbcb; padding: 0.0px 5.0px 0.0px 5.0px}
+  </style>
+</head>
+<body>
+<p class="p1">CODE BOOK</p>
+<p class="p2"><br></p>
+<p class="p3">This file contains the explanation of every variables of the file “get&amp;clean.txt ", that is given by run_analysis() function.</p>
+<p class="p4">In general all the data is a average of some fields of the original project "Human Activity Recognition Using Smartphones Dataset"</p>
+<p class="p5"><br></p>
+<p class="p3"><b>DESCRIPTION GENERAL OF NAMES</b></p>
+<p class="p3">When the name beginning with "t" means time, when beginning with "f" means frequency domain signals.</p>
+<p class="p3">"Acc"<span class="Apple-converted-space">  </span>is Accelerometer or "Gyro" is Gyroscope,<span class="Apple-converted-space"> </span></p>
+<p class="p3">“mean” for mean of data and “std” for standard deviation.</p>
+<p class="p3">The acceleration signal was separated into "Body" or "Gravity" acceleration.</p>
+<p class="p3">"Jerks" is the Jerk signal and "Mag" will be the magnitud calculated using the Euclidean norm.</p>
+<p class="p4">“meanFreq” is the Weighted average of the frequency components to obtain a mean frequency</p>
+<p class="p6"><br></p>
+<p class="p4">And finally X, Y y Z will be the coordinates in the moment the experiment was done.</p>
+<p class="p5"><br></p>
+<p class="p3"><b>NUMBERS, NAMES AND RANGE OF VALUES<span class="Apple-converted-space">  </span>OF COLUMNS</b></p>
+<table cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p7">COLUMN</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">COLUMN NAME</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">RANGE OF VALUES</p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p8"><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">1</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">Activity</p>
+      </td>
+      <td colspan="2" valign="middle" class="td5">
+        <p class="p7">WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">2</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">Subject</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>: 1.0 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. :30.0</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">3</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyAcc_mean_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:0.2216 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>:0.3015 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">4</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyAcc_mean_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.040514 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>:-0.001308 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">5</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyAcc_mean_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.15251 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>:-0.07538 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">6</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tGravityAcc_mean_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.6800 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.9745 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">7</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tGravityAcc_mean_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.47989 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.95659 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">8</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tGravityAcc_mean_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.49509 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.95787 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">9</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyAccJerk_mean_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:0.04269 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>:0.13019 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">10</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyAccJerk_mean_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.0386872 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.0568186 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">11</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyAccJerk_mean_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.067458 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.038053 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">12</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyGyro_mean_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.20578 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.19270 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">13</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyGyro_mean_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.20421 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.02747 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">14</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyGyro_mean_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.07245 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.17910 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">15</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyGyroJerk_mean_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.15721 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>:-0.02209 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">16</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyGyroJerk_mean_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.07681 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>:-0.01320 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">17</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyGyroJerk_mean_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.092500 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>:-0.006941 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">18</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyAccMag_mean</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9865 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.6446 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">19</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tGravityAccMag_mean</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9865 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.6446 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">20</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyAccJerkMag_mean</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9928 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.4345 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">21</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyGyroMag_mean</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9807 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.4180 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">22</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyGyroJerkMag_mean</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.99732 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.08758 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">23</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAcc_mean_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9952 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.5370 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">24</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAcc_mean_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.98903 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.52419 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">25</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAcc_mean_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9895 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.2807 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">26</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAcc_meanFreq_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.63591 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.15912 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">27</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAcc_meanFreq_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.379518 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.466528 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">28</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAcc_meanFreq_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.52011 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.40253 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">29</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAccJerk_mean_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9946 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.4743 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">30</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAccJerk_mean_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9894 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.2767 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">31</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAccJerk_mean_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9920 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.1578 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">32</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAccJerk_meanFreq_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.57604 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.33145 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">33</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAccJerk_meanFreq_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.60197 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.19568 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">34</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAccJerk_meanFreq_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.62756 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.23011 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">35</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyGyro_mean_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9931 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.4750 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">36</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyGyro_mean_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9940 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.3288 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">37</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyGyro_mean_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9860 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.4924 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">38</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyGyro_meanFreq_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.395770 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.249209 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">39</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyGyro_meanFreq_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.66681 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.27314 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">40</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyGyro_meanFreq_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.50749 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.37707 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">41</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAccMag_mean</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9868 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.5866 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">42</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAccMag_meanFreq</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.31234 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.43585 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">43</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyBodyAccJerkMag_mean</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9940 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.5384 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">44</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyBodyAccJerkMag_meanFreq</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.12521 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.48809 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">45</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyBodyGyroMag_mean</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9865 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.2040 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">46</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyBodyGyroMag_meanFreq</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.45664 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.40952 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">47</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyBodyGyroJerkMag_mean</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9976 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.1466 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">48</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyBodyGyroJerkMag_meanFreq</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.18292 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.42630 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">49</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyAcc_std_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9961 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.6269 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">50</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyAcc_std_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.99024 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.61694 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">51</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyAcc_std_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9877 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.6090 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">52</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tGravityAcc_std_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9968 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>:-0.8296 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">53</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tGravityAcc_std_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9942 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>:-0.6436 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">54</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tGravityAcc_std_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9910 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>:-0.6102 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">55</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyAccJerk_std_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9946 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.5443 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">56</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyAccJerk_std_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9895 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.3553 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">57</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyAccJerk_std_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.99329 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.03102 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">58</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyGyro_std_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9943 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.2677 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">59</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyGyro_std_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9942 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.4765 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">60</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyGyro_std_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9855 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.5649 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">61</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyGyroJerk_std_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9965 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.1791 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">62</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyGyroJerk_std_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9971 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.2959 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">63</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyGyroJerk_std_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9954 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.1932 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">64</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyAccMag_std</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9865 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.4284 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">65</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tGravityAccMag_std</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9865 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.4284 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">66</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyAccJerkMag_std</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9946 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.4506 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">67</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyGyroMag_std</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9814 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.3000 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">68</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">tBodyGyroJerkMag_std</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9977 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.2502 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">69</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAcc_std_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9966 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.6585 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">70</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAcc_std_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.99068 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.56019 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">71</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAcc_std_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9872 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.6871 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">72</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAccJerk_std_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9951 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.4768 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">73</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAccJerk_std_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9905 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.3498 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">74</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAccJerk_std_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.993108 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>:-0.006236 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">75</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyGyro_std_X</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9947 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.1966 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">76</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyGyro_std_Y</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9944 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.6462 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">77</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyGyro_std_Z</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9867 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.5225 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">78</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyAccMag_std</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9876 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.1787 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">79</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyBodyAccJerkMag_std</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9944 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.3163 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">80</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyBodyGyroMag_std</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9815 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.2367 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9">81</p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p7">fBodyBodyGyroJerkMag_std</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p7">Min. <span class="Apple-converted-space">  </span>:-0.9976 <span class="Apple-converted-space"> </span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p7">Max. <span class="Apple-converted-space">  </span>: 0.2878 <span class="Apple-converted-space"> </span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
