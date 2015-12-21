@@ -1,0 +1,107 @@
+---
+title: "mtcars mpg prediction"
+author: "Ning Zhang"
+date: "December 20, 2015"
+output: html_document
+---
+
+You work for Motor Trend, a magazine about the automobile industry. Looking at a data set of a collection of cars, they are interested in exploring the relationship between a set of variables and miles per gallon (MPG) (outcome). They are particularly interested in the following two questions:
+
+“Is an automatic or manual transmission better for MPG”
+"Quantify the MPG difference between automatic and manual transmissions"
+
+```{r}
+data(mtcars)
+str(mtcars)
+```
+
+```{r}
+#calculate correlations between features, and get rid of those highly related.
+correlations <- cor(mtcars[,-1])
+correlations <- correlations - diag(1, 10, 10)
+"""
+cyl <-> disp, hp, wt, vs,
+disp <-> hp, drat, wt,vs,
+hp <-> qsec, vs, carb,
+drat <-> wt, am,
+qsec <-> vs,
+cyl, disp, hp, wt, vs, drat, qsec, carb, am,
+"""
+
+```
+
+```{r}
+
+
+fit_general <- lm(mpg ~ . - disp, data=mtcars)
+summary(fit_general)
+
+```
+
+```{r}
+fit_am <- lm(mpg ~ am, data=mtcars)
+summary(fit_am)
+fit_am_carb <- lm(mpg ~ am + carb, data = mtcars)
+summary(fit_am_carb)
+fit_am_carb_hp <- lm(mpg ~ am + carb + hp, data = mtcars)
+summary(fit_am_carb_hp)
+fit_am_hp <- lm(mpg ~ am + hp, data = mtcars)
+summary(fit_am_hp)
+plot(fit_am_hp)
+
+
+fit_am_hp_wt <- lm(mpg ~ am + hp + wt, data=mtcars)
+summary(fit_am_hp_wt)
+
+fit_am_hp_qsec <- lm(mpg ~ am + hp + qsec, data=mtcars)
+summary(fit_am_hp_qsec)
+
+mtcars$hpSq <- mtcars$hp^2
+fit_am_hpSq <- lm(mpg ~ am + hpSq, data=mtcars)
+summary(fit_am_hpSq)
+
+```
+
+```{r}
+data(mtcars)
+fit <- lm(mpg ~ ., data=mtcars)
+summary(fit)
+fit <- update(fit, . ~ . - cyl)
+summary(fit)
+fit <- update(fit, . ~ . - vs)
+summary(fit)
+
+fit <- update(fit, . ~ . - carb)
+summary(fit)
+fit <- update(fit, . ~ . - gear)
+summary(fit)
+fit <- update(fit, . ~ . - drat)
+summary(fit)
+
+fit <- update(fit, . ~ . - disp)
+summary(fit)
+fit <- update(fit, . ~ . - hp)
+summary(fit)
+plot(fit)
+
+
+
+mtcars$qsecRoot <- sqrt(mtcars$qsec)
+fit_final <- lm(mpg ~ wt + qsec + am + qsecRoot, data=mtcars)
+summary(fit_final)
+
+fit <- lm(mpg ~ wt + am + qsec - 1, data = mtcars)
+summary(fit)
+
+```
+
+```{r}
+plot(predict(fit), mtcars$mpg)
+line(predict(fit), mtcars$mpg)
+abline(0.5207, 0.9476)
+```
+
+problems to solve:
+
+How to look at the fit plot?
+
