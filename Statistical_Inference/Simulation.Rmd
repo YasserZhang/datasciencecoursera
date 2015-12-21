@@ -1,0 +1,146 @@
+
+```{r echo=FALSE}
+library(knitr)
+opts_chunk$set(echo=FALSE, warning = FALSE, message = FALSE, fig.width = 4, fig.height = 3)
+```
+
+###Title
+
+An Exercise about Exponential Distribution and Central Limit Theorem
+
+###Overview
+
+With the help of simulation methods embeded in R, this exercise is to demonstrate certain properties of the distribution of the averages of samples with the size of 40 exponentials collected from the same exponential distribution. The exercise tries to fulfill the following three targets:  
+
+1. Show the sample mean and compare it to the theoretical mean of the distribution.  
+2. Show how variable the sample is (via variance) and compare it to the theoretical variance of the distribution.  
+3. Show that the distribution is approximately normal.  
+
+###Simulations
+
+Following instructions in this exercise, I simulated an exponential distribution with its lambda being 0.2. I collect a sample of 40 exponentials from the distribution and calculate its mean value, repeating this process for 1,000 times. Using the 1,000 averages of 40 exponentials, I try to illustrate those topics mentioned above.
+
+```{r warning = FALSE}
+library(ggplot2)
+```
+
+```{r}
+set.seed(123)
+simulation <- matrix(nrow = 1000, ncol=40)
+for (i in 1:1000){
+    simulation[i,] <- rexp(40, rate = 0.2)
+}
+```
+
+####Sample Mean versus Theoretical Mean
+
+I calculate the mean values of the 1,000 samples, and draw a historgram about them.
+```{r warning = FALSE}
+#hist(rowMeans(simulation), plot = TRUE, xlab = "sample mean", main = "Distribution of Sample Means")
+sample_means <- data.frame(means = rowMeans(simulation))
+population_mean <- 1/0.2
+means_hist <- ggplot(data=sample_means, aes(x=means))+ ylim(0,40)
+means_hist <- means_hist + geom_histogram(binwidth=0.05,colour = "white",fill = "black",alpha=0.8) +
+    xlab("sample mean") +
+    ylab("Frequency") + 
+    ggtitle("Distribution of Sample Means")
+means_hist <- means_hist + geom_vline(xintercept=population_mean, colour="red", size=0.5) +
+    scale_x_continuous(breaks = c(2, 3, 4, 5, 6, 7, 8))
+means_hist
+```
+
+The histogram shows that the sample means forms an approximate normal distribution, symmetrically centering around the value of 5. This result is consistent with the fact that the theoretical mean of the exponential distribution is the inverse of the lambda value, which is 1/0.2 = 5.
+
+####Sample Variance versus Theoretical Variance
+
+Include figures (output from R) with titles. Highlight the variances you are comparing. Include text that explains your understanding of the differences of the variances.
+
+By theory, the variance of an exponentional distribution is the inverse of the lambda squared, namely, $$Var[X] = \frac{1}{\lambda^2}$$
+
+The theoretical variance (_S_) of the averages of samples of size _n_ is the variance of the original expoential distribution divided by sample size, namely, $$S = \frac{Var[X]}{n}$$
+
+To show the relationship between the variance of sample means of the simulated exponential distribution and its theoretical variance, I made four collections which contain 1,000 samples of size 10, 20, 40, and 80 respectively.
+
+```{r}
+theoretical_variance <- 1/(0.2^2)
+set.seed(124)
+simulation_10 <- matrix(nrow=1000, ncol=10)
+for (i in 1:1000){
+    simulation_10[i,] <- rexp(10, rate = 0.2)
+}
+
+simulation_20 <- matrix(nrow=1000, ncol=20)
+for (i in 1:1000){
+    simulation_20[i,] <- rexp(20, rate = 0.2)
+}
+
+simulation_40 <- matrix(nrow = 1000, ncol=40)
+for (i in 1:1000){
+    simulation_40[i,] <- rexp(40, rate = 0.2)
+}
+
+simulation_80 <- matrix(nrow=1000, ncol=80)
+for (i in 1:1000){
+    simulation_80[i,] <- rexp(80, rate = 0.2)
+}
+```
+
+I calculated the variances of the four collection of samples, and their repective theoretical sample variances. To comparison the difference between the two group of values, I merge them into one data frame and use barplot to arrange them by group. By pairwise comparing sample variance and its theoretical value, we can clearly see the pattern in the figure. 
+
+```{r}
+variance_10 <- var(rowMeans(simulation_10))
+variance_20 <- var(rowMeans(simulation_20))
+variance_40 <- var(rowMeans(simulation_40))
+variance_80 <- var(rowMeans(simulation_80))
+sample_variances <- c(variance_10, variance_20, variance_40, variance_80)
+theoretical_sample_variances <- c(theoretical_variance/10, theoretical_variance/20, theoretical_variance/40, theoretical_variance/80)
+variance_mark = c(replicate(4, "Sampled"), replicate(4, "Theoretical"))
+group = as.vector(replicate(2, c(10,20,40,80)))
+variances <- data.frame(Group = as.factor(group), Variance = c(sample_variances, theoretical_sample_variances), Mark = variance_mark)
+# another way to draw the barplot
+#var <-  qplot(x= Group, y=Variance, fill=Mark,
+#                       data=variances, geom="bar", stat="identity",
+#                       position="dodge")
+
+comparison_var <- ggplot(variances, aes(x=Group, y=Variance)) + geom_bar(aes(fill = Mark), position = "dodge", stat= "identity") + 
+    xlab("Sample Size") + 
+    ggtitle("Comparison between sample variances and their theoretical values")
+
+comparison_var
+```
+
+By comparison, I find no significant difference between the simulated sample variances and their respective theoretical values. So the result is consistent with the theory of sample variances of an exponential distribution.
+
+###Distribution
+
+First, I calculate the average and standard deviation of the sample means of the collection of samples of 40 exponentials
+
+```{r}
+mean_of_samples <- mean(sample_means$means)
+variance_of_samples <- var(sample_means$means)
+mean_of_samples
+variance_of_samples
+```
+
+The average is `r mean_of_samples`, and the standard deviation is `r variance_of_samples`. 
+
+To demonstrate the distribution of means of samples of 40 exponentials from the exponential distribution, I plot a density distribution about those sample means, and superimpose a normal distribution with the same mean value and standard deviation as those of the collection of samples, namely, $N(\mu = `r mean_of_samples`, \sigma = `r variance_of_samples`)$.
+
+```{r}
+means_density <- ggplot(data=sample_means, aes(x=means)) + 
+    geom_density(stat="density", position = "identity")
+
+cols <- c("Sample_Mean"="#f04546","Normal"="#3591d1")
+means_density <- ggplot(data=sample_means, aes(x=means)) +
+    geom_density(aes(y=..density.., position="stack", colour = "Sample_Mean")) + 
+    stat_function(fun = dnorm, aes(colour = "Normal"), args = list(mean = mean_of_samples, sd = sqrt(variance_of_samples))) + 
+    scale_colour_manual(name="Distribution",values=cols) +
+    geom_vline(xintercept=mean_of_samples, colour="#f04546", size = 0.5) + 
+    xlab("Means") + 
+    ylab("Density") + 
+    ggtitle("Distribution Of Sample Means of The Exponential Distribution")
+
+means_density
+```
+
+From the plot we can see that the density distribution of sample means of the exponential distribution looks like the shape of bell curve, and approximately overlapps with the curve of normal ditribution which has the same mean value and standard deviation.

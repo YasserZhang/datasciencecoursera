@@ -1,0 +1,85 @@
+
+####An Appendix for Tooth Growth Analysis (R codes and figures)
+``` {r message = FALSE}
+
+data("ToothGrowth")
+library(ggplot2)
+library(dplyr)
+library(knitr)
+opts_chunk$set(results = "hide")
+#group the data by supp and dose
+Tooth_by_Supp_Dose <- ToothGrowth %>%
+    group_by(supp, dose)
+#change class of dose into factor
+Tooth_by_Supp_Dose$dose <- as.factor(Tooth_by_Supp_Dose$dose)
+Var_By_Supp <- Tooth_by_Supp_Dose %>%
+    group_by(supp, dose) %>%
+    summarise(Variance = var(len))
+```
+summary of the data
+```{r}
+str(ToothGrowth)
+summary(ToothGrowth)
+```
+boxplot
+```{r}
+par(mfrow = c(2, 2))
+summary_plot <- ggplot(data=ToothGrowth, aes(x=supp, y=len)) + 
+    geom_boxplot(aes(color = supp)) +
+    ggtitle("Boxplot")
+```
+point plot
+```{r}
+Growth_Plot <- ggplot(data = Tooth_by_Supp_Dose, aes(x=dose, y=len)) +
+    geom_point(aes(color=supp), alpha=0.9, size = 2) +
+    facet_grid(.~ supp) + 
+    ggtitle("Point Plot")
+```
+
+```{r fig.show='hold', fig.width=3, fig.height = 3, fig.cap = 3, results = "hide"} 
+op <- par(mfrow=c(1,2)) 
+summary_plot
+Growth_Plot
+par(op) 
+``` 
+barplot
+```{r}
+Bar_Plot <- ggplot(data=Var_By_Supp,aes(x=dose, y = Variance)) +
+    geom_bar(aes(fill = supp), position = "dodge", stat="identity") + 
+    ggtitle("Barplot")
+
+```
+histogram of variances
+```{r}
+#So variances are equal.
+Hist_Plot <- ggplot(data= Tooth_by_Supp_Dose, aes(len)) + 
+    geom_histogram(binwidth=5,colour = "white",fill = "black",alpha=0.8) + 
+    facet_grid(supp + dose ~ .) + 
+    ggtitle("Histogram")
+#the assumption that the data distributed in the shape of mound is acceptable, since each unite of observations is identical and randomly chosen. 
+```
+
+```{r fig.show='hold', fig.width=3, fig.height = 3, results = "hide"} 
+op <- par(mfrow=c(1,2)) 
+Bar_Plot
+Hist_Plot
+par(op) 
+``` 
+The t test on the group (OJ, 0.5) and the group (VC, 0.5):
+```{r results = "hide"}
+Dose_0.5 <- filter(ToothGrowth, dose == 0.5)
+test_0.5 <- t.test(len ~ supp, paired = FALSE, var.equal = FALSE, data = Dose_0.5)
+test_0.5
+```
+The t test on the group (OJ, 1) and the group (VC, 1):
+```{r results = "hide"}
+Dose_1.0 <- filter(ToothGrowth, dose == 1.0)
+test_1.0 <- t.test(len ~ supp, paired = FALSE, var.equal = FALSE, data = Dose_1.0)
+test_1.0
+```
+The t test on the group (OJ, 2) and the group (VC, 2):
+```{r results = "hide"}
+Dose_2.0 <- filter(ToothGrowth, dose == 2.0)
+test_2.0 <- t.test(len ~ supp, paired = FALSE, var.equal = FALSE, data = Dose_2.0)
+test_2.0
+```
